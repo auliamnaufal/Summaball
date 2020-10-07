@@ -1,0 +1,25 @@
+<li><a class="waves-effect waves-red" href="#home">Home</a></li>
+<li><a class="waves-effect waves-red" href="#about">About</a></li>
+<li><a class="waves-effect waves-red" href="#contact">Contact</a></li>
+<li>
+  <a class="dropdown-button" data-target="dropdown"
+    >Dropdown<i class="material-icons right">arrow_drop_down</i></a
+  >
+</li>
+<ul id="dropdown" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+<script>
+  $(".dropdown-button").dropdown({
+    inDuration: 300,
+    outDuration: 225,
+    constrain_width: true,
+    hover: false,
+    gutter: 0,
+    belowOrigin: false,
+  });
+</script>
