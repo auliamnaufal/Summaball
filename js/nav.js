@@ -1,39 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Activate sidebar nav
-  var elems = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(elems);
-  loadNav();
 
-  function loadNav() {
+  function topNav() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4) {
         if (this.status != 200) return;
 
         // Muat daftar tautan menu
-        document.querySelectorAll(".topnav, .sidenav").forEach(function (elm) {
-          elm.innerHTML = xhttp.responseText;
-        });
+        document.querySelectorAll(".topnav").innerHTML = xhttp.responseText;
+        $(".dropdown-trigger").dropdown();
 
         // Daftarkan event listener untuk setiap tautan menu
-        document
-          .querySelectorAll(".sidenav a, .topnav a")
-          .forEach(function (elm) {
-            elm.addEventListener("click", function (event) {
-              // Tutup sidenav
-              var sidenav = document.querySelector(".sidenav");
-              M.Sidenav.getInstance(sidenav).close();
-
-              // Muat konten halaman yang dipanggil
-              page = event.target.getAttribute("href").substr(1);
-              loadPage(page);
-            });
+        document.querySelectorAll(".link1").forEach(function (elm) {
+          elm.addEventListener("click", function (event) {
+            // Muat konten halaman yang dipanggil
+            page = event.target.getAttribute("href").substr(1);
+            loadPage(page);
           });
+        });
       }
     };
-    xhttp.open("GET", "nav.html", true);
+    xhttp.open("GET", "/pages/topnav.html", true);
     xhttp.send();
   }
+  topNav();
+
+  function sideNav() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        if (this.status != 200) return;
+
+        // Muat daftar tautan menu
+        document.querySelectorAll(".sidenav").innerHTML = xhttp.responseText;
+        $(".dropdown-trigger").dropdown();
+        $(".sidenav").sidenav();
+
+        // Daftarkan event listener untuk setiap tautan menu
+        document.querySelectorAll(".link2").forEach(function (elm) {
+          elm.addEventListener("click", function (event) {
+            // Muat konten halaman yang dipanggil
+            var sidenav = document.querySelectorAll(".sidenav");
+            M.Sidenav.getInstance(sidenav).close();
+            page = event.target.getAttribute("href").substr(1);
+            loadPage(page);
+          });
+        });
+      }
+    };
+    xhttp.open("GET", "/pages/sidenav.html", true);
+    xhttp.send();
+  }
+  sideNav();
 
   // Load page content
   var page = window.location.hash.substr(1);

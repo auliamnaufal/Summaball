@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.header__text {
+  position: relative;
+}
+
+.header__text h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+}
+
+.header__text p {
+  font-size: 3.3rem;
+  font-weight: 400;
+  position: absolute;
+  left: 2rem;
+}
+/*# sourceMappingURL=main.css.map */
