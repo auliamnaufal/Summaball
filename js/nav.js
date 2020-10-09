@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load page content
   var page = window.location.hash.substr(1);
+  let urlTeamParam = window.location.hash.substr(9);
   if (page == "") page = "home";
   loadPage(page);
 
@@ -65,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4) {
         var content = document.querySelector("#body-content");
+
+        if (page === "ligaJer") {
+          getStandingJer();
+        }
+
         if (this.status == 200) {
           content.innerHTML = xhttp.responseText;
         } else if (this.status == 404) {
