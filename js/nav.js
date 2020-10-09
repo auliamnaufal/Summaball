@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.status != 200) return;
 
         // Muat daftar tautan menu
-        document.querySelectorAll(".topnav").innerHTML = xhttp.responseText;
+        document.querySelector(".topnav").innerHTML = xhttp.responseText;
         $(".dropdown-trigger").dropdown();
 
         // Daftarkan event listener untuk setiap tautan menu
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.status != 200) return;
 
         // Muat daftar tautan menu
-        document.querySelectorAll(".sidenav").innerHTML = xhttp.responseText;
+        document.querySelector(".sidenav").innerHTML = xhttp.responseText;
         $(".dropdown-trigger").dropdown();
         $(".sidenav").sidenav();
 
@@ -41,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".link2").forEach(function (elm) {
           elm.addEventListener("click", function (event) {
             // Muat konten halaman yang dipanggil
-            var sidenav = document.querySelectorAll(".sidenav");
-            M.Sidenav.getInstance(sidenav).close();
+            // var sidenav = document.querySelectorAll(".sidenav");
+            // M.Sidenav.getInstance(sidenav).init(sidenav);
+            $(".sidenav").sidenav();
             page = event.target.getAttribute("href").substr(1);
             loadPage(page);
           });

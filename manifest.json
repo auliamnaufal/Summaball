@@ -1,0 +1,21 @@
+{
+  "name": "Summaball",
+  "short_name": "Summaball",
+  "description": "Aplikasi ringkasan seputar bola",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "img/splash-logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/splash-logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

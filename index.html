@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My First PWA</title>
+    <title>Summaball</title>
     <meta name="description" content="My first PWA" />
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -14,8 +14,14 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
       rel="stylesheet"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="apple-touch-startup-image"
+      href="img/splash-logo-512.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/main.css" />
@@ -27,7 +33,7 @@
     <nav class="pink accent-3" role="navigation">
       <div class="nav-wrapper container">
         <a href="#" class="brand-logo" id="logo-container">
-          <img src="./img/logo (1).png" alt="Logo" width="60" height="auto" />
+          <img src="./img/logo.png" alt="Logo" width="60" height="auto" />
         </a>
         <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
 
@@ -36,8 +42,27 @@
       </div>
     </nav>
     <!-- Akhir Navigasi -->
-    <div class="container" id="body-content"></div>
+    <div class="" id="body-content"></div>
     <script src="js/materialize.min.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/template.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then(function () {
+              console.log("Pendaftaran ServiceWorker berhasil");
+            })
+            .catch(function () {
+              console.log("Pendaftaran ServiceWorker gagal");
+            });
+        });
+      } else {
+        console.log("ServiceWorker belum didukung browser ini.");
+      }
+    </script>
   </body>
 </html>
