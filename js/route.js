@@ -23,6 +23,13 @@ function loadPage(page) {
         }
       }
     };
-    xhttp.open("GET", "pages/" + page + ".html", true);
-    xhttp.send();
+    // Jika page adalah liga-jerman, maka buka standing.html, selain itu, buka page sesuai url
+    if(page === "liga-jerman") {
+      xhttp.open("GET", "pages/standing.html", true);
+      xhttp.send();
+    } else {
+      xhttp.open("GET", "pages/" + page + ".html", true);
+      xhttp.send();
+    }
+
 }

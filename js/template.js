@@ -1,8 +1,10 @@
 function showStanding(data) {
   let standings = ``
   const standingElement = document.getElementById("standings");
-
-  data.standings[0].forEach((standing) => {
+  /* Jika dilihat melalui console.log, seharusnya kakak me looping data.standings[0].table, karena
+disitulah object team berada
+  */
+  data.standings[0].table.forEach((standing) => {
     standings += `
         <div class="standing__team">
             <div class="favtim">
@@ -15,10 +17,11 @@ function showStanding(data) {
         `;
   });
 
-  standingElement.innerHTML = `
+  // di line ke 23 dan 24 seharusnya competition, bukan competitions
+    standingElement.innerHTML = `
   <div class="standing__header blue lighten-3">
-            <h1>${data.competitions.name}</h1>
-            <p class="standing__header--place">${data.competitions.area.name}</p>
+            <h1>${data.competition.name}</h1>
+            <p class="standing__header--place">${data.competition.area.name}</p>
             <p class="standing__header--time">${data.season.startDate} - ${data.season.startDate}</p>
         </div>
   `;

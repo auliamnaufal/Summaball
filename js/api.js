@@ -1,11 +1,12 @@
 const API_KEY = "41f975413e87495cb7691c09090f4413";
 const BASE_URL = "https://api.football-data.org/v2/";
 
-const ENPOINT_JER = `${BASE_URL}competition/2002/standings`;
-const ENPOINT_BEL = `${BASE_URL}competition/2003/standings`;
-const ENPOINT_ING = `${BASE_URL}competition/2021/standings`;
-const ENPOINT_SPA = `${BASE_URL}competition/2014/standings`;
-const ENPOINT_PER = `${BASE_URL}competition/2015/standings`;
+// competitions
+const ENPOINT_JER = `${BASE_URL}competitions/2002/standings`;
+const ENPOINT_BEL = `${BASE_URL}competitions/2003/standings`;
+const ENPOINT_ING = `${BASE_URL}competitions/2021/standings`;
+const ENPOINT_SPA = `${BASE_URL}competitions/2014/standings`;
+const ENPOINT_PER = `${BASE_URL}competitions/2015/standings`;
 
 const fetchAPI = (url) => {
   return fetch(url, {
