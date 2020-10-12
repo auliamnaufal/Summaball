@@ -48,3 +48,24 @@ function getStandingJer() {
       console.log(error);
     });
 }
+
+function getStandingBel() {
+  if ("caches" in window) {
+    caches.match(ENPOINT_BEL).then(function (response) {
+      if (response) {
+        response.json().then(function (data) {
+          console.log("Competition Data: " + data);
+          showStanding(data);
+        });
+      }
+    });
+  }
+
+  fetchAPI(ENPOINT_BEL)
+    .then((data) => {
+      showStanding(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

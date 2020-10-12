@@ -10,8 +10,16 @@ function loadPage(page) {
         var content = document.querySelector("#body-content");
         console.log(page);
 
-        if (page === "liga-jerman") {
-          getStandingJer();
+        switch (page) {
+          case "liga-jerman":
+            getStandingJer();
+            break;
+            case "liga-jerman":
+              getStandingJer();
+              break;
+          default:
+            'home';
+            break;
         }
 
         if (this.status == 200) {
@@ -24,7 +32,7 @@ function loadPage(page) {
       }
     };
     // Jika page adalah liga-jerman, maka buka standing.html, selain itu, buka page sesuai url
-    if(page === "liga-jerman") {
+    if(page === "liga-jerman" || page === 'liga-belanda') {
       xhttp.open("GET", "pages/standing.html", true);
       xhttp.send();
     } else {
