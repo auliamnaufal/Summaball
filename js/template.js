@@ -1,5 +1,5 @@
 function showStanding(data) {
-  let standings = "";
+  let standings = ``
   const standingElement = document.getElementById("standings");
 
   data.standings[0].forEach((standing) => {
@@ -7,12 +7,8 @@ function showStanding(data) {
         <div class="standing__team">
             <div class="favtim">
             <img src="${standing.team.crestUrl.replace(
-              /^http:\/\//i,
-              "https://"
-            )}" alt="Logo team" />
-            <h3><a class="link" href="#team?id=${standing.team.id}">${
-      standing.team.name
-    }</a></h3>
+              /^http:\/\//i, 'https://')}" alt="Logo team" />
+            <h3><a class="link" href="#team?id=${standing.team.id}">${standing.team.name}</a></h3>
             <h3 class="point">Point: <span>${standing.points}</span></h3>
             </div>
         </div>
@@ -21,8 +17,8 @@ function showStanding(data) {
 
   standingElement.innerHTML = `
   <div class="standing__header blue lighten-3">
-            <h1>${data.competition.name}</h1>
-            <p class="standing__header--place">${data.competition.area.name}</p>
+            <h1>${data.competitions.name}</h1>
+            <p class="standing__header--place">${data.competitions.area.name}</p>
             <p class="standing__header--time">${data.season.startDate} - ${data.season.startDate}</p>
         </div>
   `;
@@ -32,4 +28,6 @@ function showStanding(data) {
       loadpage();
     });
   });
+
+
 }

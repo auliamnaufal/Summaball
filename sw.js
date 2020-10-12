@@ -1,5 +1,5 @@
-const CACHE_NAME = "summaball-v2";
-var urlsToCache = [
+const CACHE_NAME = "summaball-v4";
+const urlsToCache = [
   "/",
   "/css/main.css",
   "/css/materialize.min.css",
@@ -8,6 +8,9 @@ var urlsToCache = [
   "/img/pp.jpg",
   "/img/splash-logo-512.png",
   "/img/splash-logo-192.png",
+  "/js/api.js",
+  "/js/idb.js",
+  "/js/template.js",
   "/js/materialize.min.js",
   "/js/nav.js",
   "/pages/contact.html",
