@@ -1,4 +1,4 @@
-const CACHE_NAME = "summaball-v4";
+const CACHE_NAME = "summaball-v7";
 const urlsToCache = [
   "/",
   "/css/main.css",
@@ -8,6 +8,7 @@ const urlsToCache = [
   "/img/pp.jpg",
   "/img/splash-logo-512.png",
   "/img/splash-logo-192.png",
+  "/img/826.gif",
   "/js/api.js",
   "/js/idb.js",
   "/js/template.js",
@@ -18,6 +19,7 @@ const urlsToCache = [
   "/pages/saved.html",
   "/pages/sidenav.html",
   "/pages/topnav.html",
+  "/pages/team.html",
   "/index.html",
   "/manifest.json",
 ];

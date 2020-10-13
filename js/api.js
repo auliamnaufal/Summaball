@@ -69,3 +69,88 @@ function getStandingBel() {
       console.log(error);
     });
 }
+
+function getStandingIng() {
+  if ("caches" in window) {
+    caches.match(ENPOINT_ING).then(function (response) {
+      if (response) {
+        response.json().then(function (data) {
+          console.log("Competition Data: " + data);
+          showStanding(data);
+        });
+      }
+    });
+  }
+
+  fetchAPI(ENPOINT_ING)
+    .then((data) => {
+      showStanding(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getStandingSpa() {
+  if ("caches" in window) {
+    caches.match(ENPOINT_SPA).then(function (response) {
+      if (response) {
+        response.json().then(function (data) {
+          console.log("Competition Data: " + data);
+          showStanding(data);
+        });
+      }
+    });
+  }
+
+  fetchAPI(ENPOINT_SPA)
+    .then((data) => {
+      showStanding(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getStandingPer() {
+  if ("caches" in window) {
+    caches.match(ENPOINT_PER).then(function (response) {
+      if (response) {
+        response.json().then(function (data) {
+          console.log("Competition Data: " + data);
+          showStanding(data);
+        });
+      }
+    });
+  }
+
+  fetchAPI(ENPOINT_PER)
+    .then((data) => {
+      showStanding(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+function getTeam(id) {
+	const url = `${BASE_URL}teams/${id}`;
+
+	if ('caches' in window) {
+		caches.match(url).then(function (response) {
+			if (response) {
+				response.json().then(function (team) {
+					showTeam(team);
+				});
+			}
+		});
+	}
+
+	fetchAPI(url)
+		.then((team) => {
+			showTeam(team);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+}

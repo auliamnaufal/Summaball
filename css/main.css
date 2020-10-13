@@ -160,4 +160,61 @@ body {
   color: white;
   font-size: 2rem;
 }
+
+.team__header {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2rem;
+}
+
+.team__header img {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.team__header--info {
+  text-align: center;
+}
+
+.team__header--info h2 {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.team__header--info p {
+  font-size: 1.5rem;
+}
+
+.team__player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.616);
+}
+
+.team__player img {
+  width: 10%;
+}
+
+.team__player .point {
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.team__player span {
+  font-weight: 700;
+}
 /*# sourceMappingURL=main.css.map */

@@ -143,3 +143,52 @@ body {
     }
   }
 }
+
+.team {
+  &__header {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    img {
+      width: 30%;
+      margin: 0 auto;
+    }
+
+    &--info {
+      text-align: center;
+
+      h2 {
+        font-size: 5rem;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__player {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.616);
+
+    img {
+      width: 10%;
+    }
+
+    .point {
+      font-weight: 400;
+      font-size: 3rem;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
