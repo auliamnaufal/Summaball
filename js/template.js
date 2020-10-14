@@ -40,7 +40,7 @@ disitulah object team berada
 }
 
 function showTeam(team) {
-  const teamElement  = document.getElementById('team')
+  const teamElement  = document.getElementById('team');
   let player = ``;
 
   team.squad.forEach((p) => {
@@ -63,7 +63,7 @@ function showTeam(team) {
       </div>
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large pink accent-3 waves-effect" id="save" href="${team.id}">
-          <i class="large material-icons">save</i>
+          <i class="large material-icons id="save-icon">save</i>
         </a>
       </div>
     </div>
@@ -71,4 +71,57 @@ function showTeam(team) {
     ${player}
   `;
 
+  async function checkId() {
+		if (await isFav(parseInt(window.location.hash.substr(9)))) {
+		}
+  }
+  
+  checkId();
+
+  $('#save').on('click', async (e) => {
+		e.preventDefault();
+		// mendapatkan id team dari nilai href
+		const teamId = parseInt(e.currentTarget.getAttribute('href'));
+
+		if (await isFav(teamId)) {
+			deleteTeamFav(teamId);
+			M.toast({ html: `${team.name}  Dihapus Dari Tim Favorit` });
+		} else {
+			M.toast({ html: `${team.name}  Ditambahkan Ke Tim Favorit` });
+			addTeamFav(team);
+		}
+  });
+  
+}
+
+function showFav() {
+  getAllTeamFav().then((favs) => {
+		let header = '';
+		let savedTeam = '';
+		// looping data dari database
+		favs.forEach((favs) => {
+      savedTeam += `
+      <div class="favtim" id="fav">
+        <img src="${favs.crestUrl.replace(/^http:\/\//i,'https://')}"  
+          alt="Logo team" />
+        <h3><a href="#team?id=${favs.id}" class="saved">${favs.name}</a></h3>
+      </div> 
+      `;
+		});
+    header += `
+      <div class="fav blue lighten-3">
+        <h1 class="fav__header">Tim Favorit</h1>
+     </div>
+     ${savedTeam === '' ? 'Tidak ada tim favorit' : savedTeam} 
+
+     `;
+
+		document.getElementById('saved').innerHTML = header;
+		document.querySelectorAll('.saved').forEach(function (link) {
+			link.addEventListener('click', function (event) {
+				urlTeamParam = event.target.getAttribute('href').substr(9);
+				loadPage();
+			});
+		});
+	});
 }

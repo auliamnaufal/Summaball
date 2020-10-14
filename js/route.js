@@ -26,17 +26,22 @@ function loadPage(page) {
                   case "liga-perancis":
                     getStandingPer();
                     break;
-                    case urlTeamParam.length > 0:
-                    getTeam(urlTeamParam);
-                    break;
           default:
             'home';
             break;
+        }
+        // FIXED
+        // karena sudah beda case( page dan urlTeamParam ), makanya lebih baik dipisah kak
+        if(urlTeamParam.length > 0) {
+          getTeam(urlTeamParam);
         }
 
         if (this.status == 200) {
           content.innerHTML = xhttp.responseText;
           console.log(urlTeamParam);
+          // FIXED
+          // parameter urlTeamParam akan di setting mejadi 0 ketika proses fetch team telah selesai dan data sudah ditampilkan
+          urlTeamParam = 0
         } else if (this.status == 404) {
           content.innerHTML = "<p>Halaman tidak ditemukan.</p>";
         } else {

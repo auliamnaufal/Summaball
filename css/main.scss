@@ -1,7 +1,28 @@
+$bp-largest: 70em; //1120 / 16
+$bp-large: 62.5em; //1000 / 16
+$bp-medium: 48.125em; //770 / 16
+$bp-small: 42.55em; //680/16
+$bp-smallest: 35.625em; //570/16
+$bp-smaller: 29.375em; //470/26
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+html {
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: $bp-smaller) {
+    font-size: 30%;
+  }
 }
 
 body {
@@ -14,15 +35,35 @@ body {
   justify-content: space-between;
   position: relative;
 
+  @media only screen and (max-width: $bp-large) {
+    display: grid;
+  }
+
   &__text {
-    position: relative;
-    margin-top: 9rem;
+    margin: 9rem 5rem 0 0;
+    @media only screen and (max-width: $bp-large) {
+      justify-content: center;
+      align-items: center;
+    }
 
     h1 {
       font-size: 6rem;
       font-weight: 400;
       color: black;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-large) {
+        justify-items: center;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 5rem;
+        margin-left: 1rem;
+      }
+
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 4rem;
+      }
     }
 
     p {
@@ -30,31 +71,33 @@ body {
       font-weight: 300;
       width: max-content;
       margin: -1rem 0 4rem;
-    }
 
-    a,
-    a:link,
-    a:visited {
-      font-size: 1.5rem;
-      text-decoration: none;
-      color: black;
-      padding: 1rem;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
+      @media only screen and (max-width: $bp-large) {
+        justify-items: center;
+        margin-left: 8rem;
       }
-    }
 
-    a:active {
-      transform: translateY(-2px);
+      @media only screen and (max-width: $bp-small) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.5rem;
+      }
     }
   }
 
   &__img {
     img {
       width: 27rem;
+
+      @media only screen and (max-width: $bp-largest) {
+        width: 20rem;
+      }
+
+      @media only screen and (max-width: $bp-large) {
+        display: none;
+      }
     }
   }
 }
@@ -106,10 +149,28 @@ body {
 
   h3 {
     font-weight: 700;
+
+    a {
+      @media only screen and (max-width: $bp-largest) {
+        font-size: 2.5rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   .point {
     font-weight: 400;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.5rem;
+    }
   }
 
   span {
@@ -145,6 +206,7 @@ body {
 }
 
 .team {
+  margin-top: 2rem;
   &__header {
     width: 100%;
     display: grid;
@@ -163,6 +225,14 @@ body {
       h2 {
         font-size: 5rem;
         font-weight: 700;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 4rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 3rem;
+        }
       }
 
       p {
@@ -178,13 +248,23 @@ body {
     padding: 0.5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.616);
 
+    h3 {
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.5rem;
+      }
+    }
+
     img {
       width: 10%;
     }
 
     .point {
       font-weight: 400;
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     span {
