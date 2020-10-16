@@ -76,7 +76,7 @@ function showTeam(team) {
       </div>
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large pink accent-3 waves-effect" id="save" href="${team.id}">
-          <i class="large material-icons id="save-icon">save</i>
+          <i class="large material-icons" id="save-icon">save</i>
         </a>
       </div>
     </div>
@@ -85,7 +85,7 @@ function showTeam(team) {
   `;
 
   $('.collapsible').collapsible();
-  const ikon = $('#save-icon');
+  const ikon = document.querySelector('#save-icon');
   async function checkId() {
 		if (await isFav(parseInt(window.location.hash.substr(9)))) {
       ikon.innerHTML = "delete";
@@ -100,11 +100,13 @@ function showTeam(team) {
 		const teamId = parseInt(e.currentTarget.getAttribute('href'));
 
 		if (await isFav(teamId)) {
+      ikon.innerHTML = 'save'
 			deleteTeamFav(teamId);
       M.toast({ html: `${team.name}  Dihapus Dari Tim Favorit` });
 		} else {
-			M.toast({ html: `${team.name}  Ditambahkan Ke Tim Favorit` });
+      ikon.innerHTML = 'delete'
       addTeamFav(team);
+			M.toast({ html: `${team.name}  Ditambahkan Ke Tim Favorit` });
 		}
   });
   
