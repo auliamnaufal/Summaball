@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --config webpack.prod.js"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -12,6 +14,7 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "web-push": "^3.4.4"
   }
 }

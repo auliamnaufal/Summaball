@@ -1,4 +1,4 @@
-const CACHE_NAME = "summaball-v7";
+const CACHE_NAME = "summaball-v9";
 const urlsToCache = [
   "/",
   "/css/main.css",
@@ -10,11 +10,15 @@ const urlsToCache = [
   "/img/splash-logo-192.png",
   "/img/826.gif",
   "/js/api.js",
+  "/js/db.js",
   "/js/idb.js",
+  "/js/route.js",
   "/js/template.js",
   "/js/materialize.min.js",
   "/js/nav.js",
+  "/js/notification.js",
   "/pages/contact.html",
+  "/pages/standing.html",
   "/pages/home.html",
   "/pages/saved.html",
   "/pages/sidenav.html",
@@ -33,22 +37,25 @@ self.addEventListener("install", function (event) {
 });
 
 self.addEventListener("fetch", function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      console.log("ServiceWorker: Menarik data: ", event.request.url);
-
-      if (response) {
-        console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-        return response;
-      }
-
-      console.log(
-        "ServiceWorker: Memuat aset dari server: ",
-        event.request.url
-      );
-      return fetch(event.request);
-    })
-  );
+  var base_url = "https://api.football-data.org/v2/";
+  if (event.request.url.indexOf(base_url) > -1) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function (cache) {
+        return fetch(event.request).then(function (response) {
+          cache.put(event.request.url, response.clone());
+          return response;
+        });
+      })
+    );
+  } else {
+    event.respondWith(
+      caches
+        .match(event.request, { ignoreSearch: true })
+        .then(function (response) {
+          return response || fetch(event.request);
+        })
+    );
+  }
 });
 
 self.addEventListener("activate", function (event) {
@@ -64,5 +71,26 @@ self.addEventListener("activate", function (event) {
         })
       );
     })
+  );
+});
+
+self.addEventListener("push", function (event) {
+  var body;
+  if (event.data) {
+    body = event.data.text();
+  } else {
+    body = "Push message no payload";
+  }
+  var options = {
+    body: body,
+    icon: "img/splash-logo-192.png",
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1,
+    },
+  };
+  event.waitUntil(
+    self.registration.showNotification("Summaball", options)
   );
 });

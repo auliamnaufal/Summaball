@@ -17,9 +17,21 @@
   }
 }
 
+@media only screen and (max-width: 35.625em) {
+  html {
+    font-size: 35%;
+  }
+}
+
 @media only screen and (max-width: 29.375em) {
   html {
     font-size: 30%;
+  }
+}
+
+@media only screen and (max-width: 20.625em) {
+  html {
+    font-size: 25%;
   }
 }
 
@@ -29,35 +41,16 @@ body {
 
 .header {
   height: 88vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   position: relative;
-}
-
-@media only screen and (max-width: 62.5em) {
-  .header {
-    display: -ms-grid;
-    display: grid;
-  }
+  overflow: hidden;
 }
 
 .header__text {
-  margin: 9rem 5rem 0 0;
-}
-
-@media only screen and (max-width: 62.5em) {
-  .header__text {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .header__text h1 {
@@ -67,22 +60,39 @@ body {
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 62.5em) {
+@media only screen and (max-width: 70em) {
   .header__text h1 {
-    justify-items: center;
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 48.125em) {
+  .header__text h1 {
+    font-size: 4.5rem;
   }
 }
 
 @media only screen and (max-width: 42.55em) {
   .header__text h1 {
-    font-size: 5rem;
-    margin-left: 1rem;
+    font-size: 4rem;
   }
 }
 
 @media only screen and (max-width: 35.625em) {
   .header__text h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 29.375em) {
+  .header__text h1 {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 20.625em) {
+  .header__text h1 {
+    font-size: 2.5rem;
   }
 }
 
@@ -95,38 +105,51 @@ body {
   margin: -1rem 0 4rem;
 }
 
+@media only screen and (max-width: 70em) {
+  .header__text p {
+    font-size: 2rem;
+  }
+}
+
 @media only screen and (max-width: 62.5em) {
   .header__text p {
-    justify-items: center;
-    margin-left: 8rem;
+    font-size: 2rem;
+    margin: -1rem 7rem 4rem;
+  }
+}
+
+@media only screen and (max-width: 48.125em) {
+  .header__text p {
+    font-size: 1.5rem;
+    margin: -1rem 7rem 4rem;
   }
 }
 
 @media only screen and (max-width: 42.55em) {
   .header__text p {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin: -1rem 6rem 4rem;
   }
 }
 
 @media only screen and (max-width: 35.625em) {
   .header__text p {
     font-size: 1.5rem;
+    margin: -1rem 4.5rem 4rem;
   }
 }
 
-.header__img img {
-  width: 27rem;
-}
-
-@media only screen and (max-width: 70em) {
-  .header__img img {
-    width: 20rem;
+@media only screen and (max-width: 29.375em) {
+  .header__text p {
+    font-size: 1.5rem;
+    margin: -1rem 3rem 4rem;
   }
 }
 
-@media only screen and (max-width: 62.5em) {
-  .header__img img {
-    display: none;
+@media only screen and (max-width: 20.625em) {
+  .header__text p {
+    font-size: 1.5rem;
+    margin: -1rem 5rem 4rem;
   }
 }
 
@@ -137,7 +160,7 @@ body {
 }
 
 .contact img {
-  width: 20rem;
+  width: 60%;
   border-radius: 50px;
   -webkit-box-shadow: 0px 20px 10px #e9e9e9;
           box-shadow: 0px 20px 10px #e9e9e9;
@@ -145,6 +168,18 @@ body {
 
 .contact figcaption {
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 35.625em) {
+  .contact figcaption {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 20.625em) {
+  .contact figcaption {
+    font-size: 1rem;
+  }
 }
 
 .fav {
@@ -201,9 +236,15 @@ body {
   }
 }
 
-@media only screen and (max-width: 42.55em) {
+@media only screen and (max-width: 35.625em) {
   .favtim h3 a {
     font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 29.375em) {
+  .favtim h3 a {
+    font-size: 1.3rem;
   }
 }
 
@@ -212,6 +253,12 @@ body {
 }
 
 @media only screen and (max-width: 42.55em) {
+  .favtim .point {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 29.375em) {
   .favtim .point {
     font-size: 1.5rem;
   }
@@ -233,6 +280,12 @@ body {
   color: white;
 }
 
+@media only screen and (max-width: 29.375em) {
+  .standing__header h1 {
+    font-size: 3rem;
+  }
+}
+
 .standing__header--place {
   font-size: 2.5rem;
   font-weight: normal;
@@ -244,6 +297,12 @@ body {
 .standing__header--time {
   color: white;
   font-size: 2rem;
+}
+
+@media only screen and (max-width: 42.55em) {
+  .standing__header--time {
+    font-size: 1.5rem;
+  }
 }
 
 .team {
@@ -329,5 +388,20 @@ body {
 
 .team__player span {
   font-weight: 700;
+}
+
+.info li {
+  font-size: 1.5rem;
+}
+
+.info li:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+#preload {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
 }
 /*# sourceMappingURL=main.css.map */

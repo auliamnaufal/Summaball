@@ -1,9 +1,7 @@
 function showStanding(data) {
   let standings = ``;
   const standingElement = document.getElementById("standings");
-  /* Jika dilihat melalui console.log, seharusnya kakak me looping data.standings[0].table, karena
-disitulah object team berada
-  */
+  
   data.standings[0].table.forEach((standing) => {
     standings += `
         <div class="standing__team">
@@ -14,6 +12,7 @@ disitulah object team berada
             <h3 class="point">Point: <span>${standing.points}</span></h3>
             </div>
         </div>
+        
         `;
   });
 
@@ -47,8 +46,22 @@ function showTeam(team) {
     player += `
     <div class="team__player" id="player">
       <h3>${p.name}</h3>
-      <h3 class="point">Posisi: <span>${p.position}</span></h3>
     </div>
+
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">Informasi Pemain</div>
+        <div class="collapsible-body">
+          <span>
+            <ul class="info">
+              <li>Position:  ${p.position}</li>
+              <li>Negara Kelahiran: ${p.countryOfBirth}</li>
+              <li>Kebangsaan: ${p.nationality}</li>
+            </ul>
+          </span>
+        </div>
+      </li>
+  </ul>
     `
   })
 
@@ -57,7 +70,7 @@ function showTeam(team) {
       <img src="${team.crestUrl.replace(/^http:\/\//i, 'https://')}" alt="Team logo">
       <div class="team__header--info">
         <h2>${team.name}</h2>
-        <p>
+        <p class="flow-text">
           ${team.name} pertama kali di temukan pada tahun ${team.founded === null ? 'yang tidak diketahui' : team.founded}, alamat ${team.name} ada di ${team.addredd}. tim ini menggunakan warna ${team.clubColors}
         </p>
       </div>
@@ -71,8 +84,11 @@ function showTeam(team) {
     ${player}
   `;
 
+  $('.collapsible').collapsible();
+  const ikon = $('#save-icon');
   async function checkId() {
 		if (await isFav(parseInt(window.location.hash.substr(9)))) {
+      ikon.innerHTML = "delete";
 		}
   }
   
@@ -85,10 +101,10 @@ function showTeam(team) {
 
 		if (await isFav(teamId)) {
 			deleteTeamFav(teamId);
-			M.toast({ html: `${team.name}  Dihapus Dari Tim Favorit` });
+      M.toast({ html: `${team.name}  Dihapus Dari Tim Favorit` });
 		} else {
 			M.toast({ html: `${team.name}  Ditambahkan Ke Tim Favorit` });
-			addTeamFav(team);
+      addTeamFav(team);
 		}
   });
   

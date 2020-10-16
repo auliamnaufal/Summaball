@@ -26,6 +26,9 @@ function loadPage(page) {
                   case "liga-perancis":
                     getStandingPer();
                     break;
+                    case "saved":
+                    showFav();
+                    break;
           default:
             'home';
             break;
