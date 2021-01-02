@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
     xhttp.open("GET", "/pages/topnav.html", true);
+    
     xhttp.send();
   }
   topNav();
